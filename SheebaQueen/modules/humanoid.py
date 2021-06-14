@@ -45,7 +45,7 @@ async def fetch(url):
         return
 
 
-asuna_chats = []
+sheeba_chats = []
 en_chats = []
 
 @sheeba.on_message(
