@@ -6,7 +6,7 @@ from PIL import Image, ImageDraw, ImageFont
 from pySmartDL import SmartDL
 from telethon.tl import functions
 from SheebaQueen.conf import get_int_key, get_str_key
-
+from SheebaQueen.events import register
 import asyncio
 import shutil 
 import random, re
@@ -70,7 +70,7 @@ TELEGRAPH_MEDIA_LINKS = ["https://telegra.ph/file/e354ce72d5cc6a1d27c4d.jpg",
                          "https://telegra.ph/file/f140c121d03dfcaf4e951.jpg", 
                          "https://telegra.ph/file/39f7b5d1d7a3487f6ba69.jpg"
                          ]
-@borg.on(pattern="rpc ?(.*)")
+@register(pattern="photo ?")
 async def autopic(event):
     while True:
         piclink = random.randint(0, len(TELEGRAPH_MEDIA_LINKS) - 1)
