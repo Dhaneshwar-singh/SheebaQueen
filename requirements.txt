@@ -1,4 +1,5 @@
 future
+pySmartDL
 MediaInfo
 git+https://github.com/pyrogram/pyrogram
 emoji
