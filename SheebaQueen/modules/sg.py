@@ -101,7 +101,7 @@ async def _(event):
         # await lol.edit(f"{response.message.message}")
 
 __help__ = """
-  • /sg*:* Get A Name History Of User
+ # • /sg*:* Get A Name History Of User
 """
 
 __mod_name__ = "Sang Mata"
