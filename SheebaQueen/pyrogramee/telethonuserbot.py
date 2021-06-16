@@ -3,7 +3,7 @@ import sys
 from telethon import TelegramClient
 from telethon.sessions import StringSession
 
-from SheebaQueen.config import get_int_key, get_str_key
+from SheebaQueen.conf import get_int_key, get_str_key
 
 STRING_SESSION = get_str_key("STRING_SESSION", required=True)
 API_ID = get_int_key("APP_ID", required=True)
