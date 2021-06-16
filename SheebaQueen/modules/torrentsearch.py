@@ -26,7 +26,7 @@ async def tor_search(event):
 		return 
 	headers = {'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36'}
 
-	search_str = event.pattern_match.group(1)
+	search_str = event.pattern_match.group(0)
 
 	print(search_str)
 	await event.edit("Searching for "+search_str+".....")
