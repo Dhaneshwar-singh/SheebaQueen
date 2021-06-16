@@ -2,7 +2,7 @@
 # Made For DARK COBRA and TELEBOT...
 # Made by team cobra with @xditya
 # Retrieves the name history and the username history of the replied user..
-
+"""
 import asyncio
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 from telethon.tl import functions, types
@@ -105,3 +105,4 @@ __help__ = """
 """
 
 __mod_name__ = "Sang Mata"
+"""
