@@ -25,7 +25,7 @@ async def is_register_admin(chat, user):
         return True
 
 
-@register(pattern="^/tts (.*)")
+@register(pattern="^/ttl (.*)")
 async def _(event):
     if event.fwd_from:
         return
@@ -44,7 +44,7 @@ async def _(event):
         lan, text = input_str.split("|")
     else:
         await event.reply(
-            "Invalid Syntax\nFormat `/tts lang | text`\nFor eg: `/tts en | hello`"
+            "Invalid Syntax\nFormat `/ttl lang | text`\nFor eg: `/tts en | hello`"
         )
         return
     text = text.strip()
