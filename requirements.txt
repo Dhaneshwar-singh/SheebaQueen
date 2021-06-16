@@ -22,7 +22,7 @@ geopy
 nltk
 gogoanime-api
 Pyrogram
-
+aria2p
 TgCrypto
 
 youtube_dl
