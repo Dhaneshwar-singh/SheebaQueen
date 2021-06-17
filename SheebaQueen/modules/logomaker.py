@@ -4,7 +4,7 @@ from SheebaQueen import telethn as tbot
 import os 
 from PIL import Image, ImageDraw, ImageFont
 import random
-im = ("./SheebaQueen/resources/images.jpeg")
+im = random.init("./SheebaQueen/resources/*")
 @register(pattern="^/mlogo ?(.*)")
 async def lego(event):
  quew = event.pattern_match.group(1)
