@@ -3,19 +3,19 @@ from telethon import Button
 from PIL import Image, ImageDraw, ImageFont
 
 
-#@register(pattern="^/game")
+@register(pattern="^/game")
 
-#async def game(event): 
+async def game(event): 
 
-    # await event.reply("/no : makin 2048 no. /run : run game  /slice :  ball slice game")
+    await event.reply_text("/no : makin 2048 no. /run : run game  /slice :  ball slice game")
 #2048 game
-im = ("./SheebaQueen/img/g.png")
-m = Image.open(im)
+
+
 @register(pattern="^/no")
 
 async def no(event): 
 
-      await event.reply(m
+      await event.reply(
 ,buttons=[[Button.url("2048 game ",url="sheebaga.heliohost.us")]])
 #pokemon sluce
 
