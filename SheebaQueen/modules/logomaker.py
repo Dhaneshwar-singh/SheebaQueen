@@ -6,16 +6,18 @@ from PIL import Image, ImageDraw, ImageFont
 import random
 #path = '/SheebaQueen/img/'
 #image_list = []
-lk=["https://telegra.ph/file/aa9671b45c55e86fcd092.jpg",
-    "https://telegra.ph/file/2fd18113e585b724174f6.jpg",
- 
-               ]
-im = random.choice(lk)
+#lk=["https://telegra.ph/file/aa9671b45c55e86fcd092.jpg",
+  #  "https://telegra.ph/file/2fd18113e585b724174f6.jpg",
+ #
+            #   ]
+#im = random.choice(lk)
 #for filename in im :
 
      # full_path = os.path.join(path, filename)
 
-
+path="./SheebaQueen/img"
+files=os.listdir(path)
+im=random.choice(files)
 
 
 @register(pattern="^/mlogo ?(.*)")
