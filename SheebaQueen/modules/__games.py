@@ -16,7 +16,7 @@ async def game(event):
 async def no(event): 
 
       await event.reply(
-,buttons=[[Button.url("2048 game ",url="sheebaga.heliohost.us")]])
+buttons=[[Button.url("2048 game ",url="sheebaga.heliohost.us")]])
 #pokemon sluce
 
 @register(pattern="^/slice")
