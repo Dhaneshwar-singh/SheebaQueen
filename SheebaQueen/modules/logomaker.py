@@ -4,7 +4,16 @@ from SheebaQueen import telethn as tbot
 import os 
 from PIL import Image, ImageDraw, ImageFont
 import random
-im = random.choice('./SheebaQueen/img/*')
+path = './SheebaQueen/img/'
+image_list = []
+im = random.choice(os.listdir(path))
+for filename in im :
+
+      full_path = os.path.join(path, filename)
+
+
+
+
 @register(pattern="^/mlogo ?(.*)")
 async def lego(event):
  quew = event.pattern_match.group(1)
@@ -20,7 +29,7 @@ async def lego(event):
  await event.reply('Creating your logo...wait!')
  try:
     text = event.pattern_match.group(1)
-    img = Image.open(im)
+    img = Image.open(full_path)
     draw = ImageDraw.Draw(img)
     image_widthz, image_heightz = img.size
     pointsize = 500
