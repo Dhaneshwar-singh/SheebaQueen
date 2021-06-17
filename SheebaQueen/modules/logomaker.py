@@ -4,7 +4,7 @@ from SheebaQueen import telethn as tbot
 import os 
 from PIL import Image, ImageDraw, ImageFont
 import random
-path = '/SheebaQueen/img/*'
+path = '/SheebaQueen/resources'
 image_list = []
 im = random.choice(os.listdir(path))
 for filename in im :
