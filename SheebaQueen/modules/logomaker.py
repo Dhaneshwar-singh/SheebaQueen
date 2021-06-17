@@ -6,8 +6,8 @@ from PIL import Image, ImageDraw, ImageFont
 import random
 #path = '/SheebaQueen/img/'
 #image_list = []
-lk=[https://telegra.ph/file/aa9671b45c55e86fcd092.jpg,
-    https://telegra.ph/file/2fd18113e585b724174f6.jpg
+lk=["https://telegra.ph/file/aa9671b45c55e86fcd092.jpg",
+    "https://telegra.ph/file/2fd18113e585b724174f6.jpg",
  
                ]
 im = random.choice(lk)
