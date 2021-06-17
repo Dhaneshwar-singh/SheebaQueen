@@ -4,12 +4,16 @@ from SheebaQueen import telethn as tbot
 import os 
 from PIL import Image, ImageDraw, ImageFont
 import random
-path = '/SheebaQueen/img/'
-image_list = []
-im = random.choice(os.listdir(path))
-for filename in im :
+#path = '/SheebaQueen/img/'
+#image_list = []
+lk=[https://telegra.ph/file/aa9671b45c55e86fcd092.jpg,
+    https://telegra.ph/file/2fd18113e585b724174f6.jpg
+ 
+               ]
+im = random.choice(lk)
+#for filename in im :
 
-      full_path = os.path.join(path, filename)
+     # full_path = os.path.join(path, filename)
 
 
 
@@ -29,7 +33,7 @@ async def lego(event):
  await event.reply('Creating your logo...wait!')
  try:
     text = event.pattern_match.group(1)
-    img = Image.open(full_path)
+    img = Image.open(im)
     draw = ImageDraw.Draw(img)
     image_widthz, image_heightz = img.size
     pointsize = 500
