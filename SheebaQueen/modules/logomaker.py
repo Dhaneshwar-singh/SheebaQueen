@@ -15,7 +15,7 @@ import random
 
      # full_path = os.path.join(path, filename)
 
-path="./SheebaQueen/img"
+path="./SheebaQueen/resources"
 files=os.listdir(path)
 im=random.choice(files)
 
