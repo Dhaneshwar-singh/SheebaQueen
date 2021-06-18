@@ -5,15 +5,14 @@ import os
 from PIL import Image, ImageDraw, ImageFont
 import random
 import sys
+import glob
 
-path= './SheebaQueen/img'
-#file= os.listdir(path)
-#= random.choice(file) 
 
- file = random.choice([
-    x for x in os.listdir(path)
-    if os.path.isfile(os.path.join(path, x))
-])
+
+
+ file = [ "./SheebaQueen/img/*.jpeg"]
+images = glob.glob(random.choice(file))
+random_image = random.choice(images)
 
 
 
@@ -32,7 +31,7 @@ async def lego(event):
  await event.reply('Creating your logo...wait!')
  try:
     text = event.pattern_match.group(1)
-    img = Image.open(file)
+    img = Image.open(random_image)
     draw = ImageDraw.Draw(img)
     image_widthz, image_heightz = img.size
     pointsize = 500
