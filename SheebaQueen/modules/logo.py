@@ -10,11 +10,9 @@ import glob
 
 
 
- path = "./SheebaQueen/img"
-random_filename = random.choice([
-    x for x in os.listdir(path)
-    if os.path.isfile(os.path.join(path, x))
-])
+ path="./SheebaQueen/img"
+files=os.listdir(path)
+d=random.choice(files)
 
 
 
@@ -33,7 +31,7 @@ async def lego(event):
  await event.reply('Creating your logo...wait!')
  try:
     text = event.pattern_match.group(1)
-    img = Image.open(random_filename)
+    img = Image.open(d)
     draw = ImageDraw.Draw(img)
     image_widthz, image_heightz = img.size
     pointsize = 500
