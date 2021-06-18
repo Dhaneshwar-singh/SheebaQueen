@@ -11,8 +11,8 @@ import glob
 
 
 path='./SheebaQueen/resources'
-d=random.choice(glob.glob(path + r'/*.jpg')) 
-
+dt=random.choice(glob.glob(path + r'/*.jpg')) 
+d= random.choice(dt)
 
 
 @register(pattern="^/mlogo ?(.*)")
