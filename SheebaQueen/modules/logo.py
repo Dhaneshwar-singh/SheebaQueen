@@ -10,7 +10,7 @@ import glob
 
 
 
- path="./SheebaQueen/img"
+path='./SheebaQueen/img'
 files=os.listdir(path)
 d=random.choice(files)
 
