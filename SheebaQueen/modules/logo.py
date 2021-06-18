@@ -10,7 +10,7 @@ import glob
 
 
 
- file = [ "./SheebaQueen/img/*.jpeg"]
+ file = './SheebaQueen/img/*.jpeg'
 images = glob.glob(random.choice(file))
 random_image = random.choice(images)
 
