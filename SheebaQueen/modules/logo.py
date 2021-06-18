@@ -14,7 +14,7 @@ def randomize_file():
 
 def print_random_filename(random_file):
 	random_filename = random_file.split(".jpg")[0]
-	print random_filename
+	
 
 d = random.choice(os.listdir(path))
 
