@@ -12,7 +12,7 @@ import glob
 
 path='./SheebaQueen/img'
 files=os.listdir(path)
-d=random.choice(files)
+d=os.path.join(path , random.choice(files))
 
 
 
