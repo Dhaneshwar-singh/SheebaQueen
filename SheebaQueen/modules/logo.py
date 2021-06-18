@@ -10,7 +10,8 @@ import glob
 
 
 
-path='./SheebaQueen/img/"".jpg'
+path=["https://telegra.ph/file/7a6d93fe01417a165180b.jpg",
+"https://telegra.ph/file/6e94cdd88077ac1014fdd.jpg",]
 
 d=os.path.join(path, random.choice(os.listdir(path)))
 
