@@ -11,7 +11,7 @@ import glob
 
 
 path='./SheebaQueen/img'
-d=random.choice(glob.glob(path + r'/*.png')) 
+d=random.choice(glob.glob(path + r'/*.jpg')) 
 
 
 
