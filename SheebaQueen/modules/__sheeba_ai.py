@@ -63,7 +63,7 @@ async def hmm(_, message):
             await lel.edit("sheeba AI Already Activated In This Chat")
             return
         await lel.edit(
-            f"asuna AI Successfully Added For Users In The Chat {message.chat.id}"
+            f"sheeba AI Successfully Added For Users In The Chat {message.chat.id}"
         )
 
     elif status == "OFF" or status == "off" or status == "Off":
