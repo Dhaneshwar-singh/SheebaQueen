@@ -7,7 +7,7 @@ import random
 import sys
 import glob
 
-path = sys.argv[1]
+path = './SheebaQueen/img'
 
 def randomize_file():
 	return random.choice(os.listdir(path))
