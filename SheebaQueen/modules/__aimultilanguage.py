@@ -73,7 +73,7 @@ async def hmm(_, message):
             await lel.edit("sheeba AI Was Not Activated In This Chat")
             return
         await lel.edit(
-            f"asuna AI Successfully Deactivated For Users In The Chat {message.chat.id}"
+            f"sheeba AI Successfully Deactivated For Users In The Chat {message.chat.id}"
         )
 
     elif status == "EN" or status == "en" or status == "english":
@@ -197,7 +197,7 @@ async def hmm(client, message):
             except:
                 return
         try:
-            await asuna.send_chat_action(message.chat.id, "typing")
+            await sheeba.send_chat_action(message.chat.id, "typing")
             await message.reply_text(pro)
         except CFError:
             return
@@ -330,8 +330,8 @@ async def inuka(client, message):
     # test = emoji.demojize(test.strip())
 
     # Kang with the credits bitches @InukaASiTH
-    test = test.replace("asuna", "Aco")
-    test = test.replace("asuna", "Aco")
+    test = test.replace("sheeba", "Aco")
+    test = test.replace("sheeba", "Aco")
     URL = f"https://api.affiliateplus.xyz/api/chatbot?message={test}&botname=@AsunaRobot&ownername=@The_Ghost_Hunter"
     try:
         r = requests.request("GET", url=URL)
