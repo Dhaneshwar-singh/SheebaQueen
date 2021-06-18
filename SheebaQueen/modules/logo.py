@@ -7,12 +7,13 @@ import random
 import sys
 
 path= './SheebaQueen/img'
-file= os.listdir(path)
-m= random.choice(file) 
-def print_random_filename(random_file):
-	random_filename = random_file.split(".jpg")[0]
+#file= os.listdir(path)
+#= random.choice(file) 
 
- 
+ random_filename = random.choice([
+    x for x in os.listdir(path)
+    if os.path.isfile(os.path.join(path, x))
+])
 
 
 
