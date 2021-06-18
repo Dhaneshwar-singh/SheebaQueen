@@ -10,7 +10,7 @@ import glob
 
 
 
-path='./SheebaQueen/img'
+path='./SheebaQueen/resources'
 d=random.choice(glob.glob(path + r'/*.jpg')) 
 
 
