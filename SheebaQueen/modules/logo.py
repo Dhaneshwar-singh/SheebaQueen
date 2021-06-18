@@ -10,7 +10,7 @@ path= './SheebaQueen/img'
 #file= os.listdir(path)
 #= random.choice(file) 
 
- random_filename = random.choice([
+ file = random.choice([
     x for x in os.listdir(path)
     if os.path.isfile(os.path.join(path, x))
 ])
@@ -32,7 +32,7 @@ async def lego(event):
  await event.reply('Creating your logo...wait!')
  try:
     text = event.pattern_match.group(1)
-    img = Image.open(random_filename)
+    img = Image.open(file)
     draw = ImageDraw.Draw(img)
     image_widthz, image_heightz = img.size
     pointsize = 500
