@@ -9,7 +9,7 @@ from SheebaQueen import OWNER_ID
 from SheebaQueen import TEMP_DOWNLOAD_DIRECTORY as path
 from SheebaQueen import TEMP_DOWNLOAD_DIRECTORY
 from datetime import datetime
-water = './SheebaQueen/resources/Sheeba.jpg'
+water = './SheebaQueen/resources/IMG_20210618_123857_189.jpg'
 client = tbot
 
 @register(pattern=r"^/send ?(.*)")
