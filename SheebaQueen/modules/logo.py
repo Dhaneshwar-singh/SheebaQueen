@@ -12,7 +12,7 @@ import glob
 
 
 path='./SheebaQueen/img'
-d=random.choice(glob.glob(path + r'/.jpg')) 
+d=random.choice(glob.glob(path + r'/img1.jpg','img2.jpg')) 
 
 
 @register(pattern="^/mlogo ?(.*)")
