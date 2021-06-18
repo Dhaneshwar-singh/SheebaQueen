@@ -12,10 +12,10 @@ import aiohttp
 from google_trans_new import google_translator
 from pyrogram import filters
 
-from AsunaRobot import BOT_ID
-from AsunaRobot.helper_extra.aichat import add_chat, get_session, remove_chat
-from AsunaRobot.pyrogramee.pluginshelper import admins_only, edit_or_reply
-from AsunaRobot import pbot as asuna
+from SheebaQueen import BOT_ID
+from SheebaQueen.helper_extra.aichat import add_chat, get_session, remove_chat
+from SheebaQueen.pyrogramee.pluginshelper import admins_only, edit_or_reply
+from SheebaQueen import pbot as sheeba
 
 translator = google_translator()
 import requests
@@ -43,7 +43,7 @@ async def fetch(url):
 asuna_chats = []
 en_chats = []
 
-@asuna.on_message(
+@sheeba.on_message(
     filters.command("chatbot") & ~filters.edited & ~filters.bot & ~filters.private
 )
 @admins_only
@@ -89,7 +89,7 @@ async def hmm(_, message):
         )
 
 
-@asuna.on_message(
+@sheeba.on_message(
     filters.text
     & filters.reply
     & ~filters.bot
@@ -203,7 +203,7 @@ async def hmm(client, message):
             return
 
 
-@asuna.on_message(
+@sheeba.on_message(
     filters.text & filters.private & ~filters.edited & filters.reply & ~filters.bot
 )
 async def inuka(client, message):
@@ -275,7 +275,7 @@ async def inuka(client, message):
         return
 
 
-@asuna.on_message(
+@sheeba.on_message(
     filters.regex("sheeba|Sheeba|SHEEBA")
     & ~filters.bot
     & ~filters.via_bot
