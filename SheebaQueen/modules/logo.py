@@ -7,12 +7,21 @@ import random
 import sys
 import glob
 
+path = sys.argv[1]
+
+def randomize_file():
+	return random.choice(os.listdir(path))
+
+def print_random_filename(random_file):
+	random_filename = random_file.split(".jpg")[0]
+	print random_filename
+
+d = random.choice(os.listdir(path))
 
 
 
-path='./SheebaQueen/resources'
-dt=random.choice(glob.glob(path + r'/*.jpg')) 
-d= random.choice(dt)
+#path='./SheebaQueen/resources'
+#d=random.choice(glob.glob(path + r'/*.jpg')) 
 
 
 @register(pattern="^/mlogo ?(.*)")
