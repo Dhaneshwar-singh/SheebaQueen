@@ -1,6 +1,6 @@
 from SheebaQueen.mongo import client as db_x
 
-lydia = db_x["CHATBOT"]
+lydia = db_x["CAHTBOT"]
 
 
 def add_chat(chat_id):
