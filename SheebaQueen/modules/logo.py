@@ -13,7 +13,7 @@ Listimg = ["img1", "img2" ,"img3"]
 
 Randimg = random.choice(Listimg)
 
-d = f".SheebaQueen/img/{Randimg}.jpg"
+d = f"./SheebaQueen/img/{Randimg}.jpg"
 
 
 
