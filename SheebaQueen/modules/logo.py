@@ -10,8 +10,8 @@ import glob
 
 
 Listimg = ["img1", "img2" ,"img3" ,"bg" ,"1b"]
-
-Randimg = random.choice(Listimg)
+listimg = os.listdir(Listing)
+Randimg = random.choice(listimg)
 
 d = f"./SheebaQueen/img/{Randimg}.jpg"
 
