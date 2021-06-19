@@ -3,16 +3,12 @@ from telethon import Button
 from PIL import Image, ImageDraw, ImageFont
 
 
-@register(pattern="^/game")
 
-async def game(event): 
-
-    await event.reply(
 TOKEN = ".........."
 url = "https://api.telegram.org/bot" + TOKEN
 requests.get(url + '/sendGame?chat_id=' + id + '&game_short_name=' + text)
 
-)
+
 
 
 @register(pattern="^/no")
