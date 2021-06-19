@@ -7,8 +7,12 @@ from PIL import Image, ImageDraw, ImageFont
 
 async def game(event): 
 
-    await event.reply_text("/no : makin 2048 no. /run : run game  /slice :  ball slice game")
-#2048 game
+    await event.reply(
+TOKEN = ".........."
+url = "https://api.telegram.org/bot" + TOKEN
+requests.get(url + '/sendGame?chat_id=' + id + '&game_short_name=' + text)
+
+)
 
 
 @register(pattern="^/no")
