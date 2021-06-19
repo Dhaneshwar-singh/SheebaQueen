@@ -9,10 +9,12 @@ import glob
 
 
 
+Listimg = ["img1", "img2" ,"img3"]
 
+Randimg = random.choice(Listimg)
 
-path='./SheebaQueen/img'
-d=random.choice(glob.glob(path + r'/*.jpg')) 
+d = f".SheebaQueen/img/{Randimg}.jpg"
+
 
 
 @register(pattern="^/mlogo ?(.*)")
