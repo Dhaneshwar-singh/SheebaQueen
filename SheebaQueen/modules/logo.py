@@ -9,9 +9,9 @@ import glob
 
 
 
-Listimg = ["img1", "img2" ,"img3" ,"bg" ,"1b"]
-listimg = os.listdir(Listimg)
-Randimg = random.choice(listimg)
+Listimg = ["img2", "img1" ,"img3" ,"bg" ,"1b"]
+
+Randimg = random.choice(Listimg)
 
 d = f"./SheebaQueen/img/{Randimg}.jpg"
 
