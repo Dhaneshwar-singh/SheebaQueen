@@ -4,9 +4,6 @@ from PIL import Image, ImageDraw, ImageFont
 
 
 
-TOKEN = ".........."
-url = "https://api.telegram.org/bot" + TOKEN
-requests.get(url + '/sendGame?chat_id=' + id + '&game_short_name=' + text)
 
 
 
