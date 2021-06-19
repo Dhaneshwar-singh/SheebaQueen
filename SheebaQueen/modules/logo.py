@@ -9,7 +9,7 @@ import glob
 
 
 
-Listimg = ["img1", "img2" ,"img3"]
+Listimg = ["img1", "img2" ,"img3" ,"bg" ,"1b"]
 
 Randimg = random.choice(Listimg)
 
