@@ -1,3 +1,4 @@
+
 #import re
 
 import emoji
@@ -116,7 +117,7 @@ async def hmm(client, message):
         test = msg
         test = test.replace("sheeba", "Aco")
         test = test.replace("sheeba", "Aco")
-        URL = "https://api.affiliateplus.xyz/api/chatbot?message=hi&botname=@Sheeba_Queenrobot&ownername=@Developer_boy_sd_owner"
+        URL = "https://api.affiliateplus.xyz/api/chatbot?message=hi&botname=@AsunaRobot&ownername=@The_Ghost_Hunter"
 
         try:
             r = requests.request("GET", url=URL)
@@ -179,7 +180,7 @@ async def hmm(client, message):
         # Kang with the credits bitches @InukaASiTHAsunaRobot
         test = test.replace("sheeba", "Aco")
         test = test.replace("sheeba", "Aco")
-        URL = f"https://api.affiliateplus.xyz/api/chatbot?message={test}&botname=sheeba_queen&ownername=@Developer_boy_sd_owner"
+        URL = f"https://api.affiliateplus.xyz/api/chatbot?message={test}&botname=@AsunaRobot&ownername=@The_Ghost_Hunter"
         try:
             r = requests.request("GET", url=URL)
         except:
@@ -331,7 +332,7 @@ async def inuka(client, message):
     # Kang with the credits bitches @InukaASiTH
     test = test.replace("sheeba", "Aco")
     test = test.replace("sheeba", "Aco")
-    URL = f"https://api.affiliateplus.xyz/api/chatbot?message={test}&botname=SheebaQueen&ownername=@Developer_boy_sd_owner"
+    URL = f"https://api.affiliateplus.xyz/api/chatbot?message={test}&botname=@AsunaRobot&ownername=@The_Ghost_Hunter"
     try:
         r = requests.request("GET", url=URL)
     except:
@@ -356,7 +357,7 @@ async def inuka(client, message):
 
 __help__ = """
 <b> Chatbot </b>
-Sheeba AI 3.0 IS THE ONLY AI SYSTEM WHICH CAN DETECT & REPLY UPTO 200 LANGUAGES
+Asuna AI 3.0 IS THE ONLY AI SYSTEM WHICH CAN DETECT & REPLY UPTO 200 LANGUAGES
  - /chatbot [ON/OFF]: Enables and disables AI Chat mode (EXCLUSIVE)
  - /chatbot EN : Enables English only chatbot
  
