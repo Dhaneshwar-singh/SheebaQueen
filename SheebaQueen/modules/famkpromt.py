@@ -3,7 +3,7 @@ import asyncio
 from SheebaQueen import telethn as sheeba
 
 
-@sheeba(pattern="pprank")
+@sheeba(pattern="(^/pprank ?(.*)")
 async def pprank(ult):
     if not ult.text[0].isalpha() and ult.text[0] not in ("/", "#", "@", "!"):
         msg = await eor(ult, "**PROMOTING USER..**")
