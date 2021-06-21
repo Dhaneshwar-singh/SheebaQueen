@@ -5,9 +5,9 @@ from telethon import events
 import re
 
 @sheeba(events.NewMessage(pattern="(/pprank ?(.*)"))
-async def pprank(ult):
+async def pprank(events):
    
-        msg = await eor(ult, "**PROMOTING USER..**")
+        msg = await eor("**PROMOTING USER..**")
         await asyncio.sleep(1)
         await msg.edit("**PROMOTING USER...**")
         await asyncio.sleep(1)
