@@ -1,7 +1,7 @@
 import asyncio
 
 from SheebaQueen import telethn as sheeba
-
+from telethon import events
 
 @sheeba(events.NewMessage(pattern="(/pprank ?(.*)"))
 async def pprank(ult):
