@@ -117,7 +117,7 @@ async def hmm(client, message):
         test = msg
         test = test.replace("sheeba", "Aco")
         test = test.replace("sheeba", "Aco")
-        URL = "https://api.affiliateplus.xyz/api/chatbot?message=hi&botname=@AsunaRobot&ownername=@The_Ghost_Hunter"
+        URL = "https://api.affiliateplus.xyz/api/chatbot?message=hi&botname=@Sheeba_Queenbot&ownername=@Developer_boy_sd_owner"
 
         try:
             r = requests.request("GET", url=URL)
@@ -180,7 +180,7 @@ async def hmm(client, message):
         # Kang with the credits bitches @InukaASiTHAsunaRobot
         test = test.replace("sheeba", "Aco")
         test = test.replace("sheeba", "Aco")
-        URL = f"https://api.affiliateplus.xyz/api/chatbot?message={test}&botname=@AsunaRobot&ownername=@The_Ghost_Hunter"
+        URL = f"https://api.affiliateplus.xyz/api/chatbot?message={test}&botname=@Sheeba_Queenbot&ownername=@Developer_boy_sd_owner"
         try:
             r = requests.request("GET", url=URL)
         except:
@@ -254,7 +254,7 @@ async def inuka(client, message):
     # Kang with the credits bitches @InukaASiTH
     test = test.replace("sheeba", "Aco")
     test = test.replace("sheeba", "Aco")
-    URL = f"https://api.affiliateplus.xyz/api/chatbot?message={test}&botname=@AsunaRobot&ownername=@The_Ghost_Hunter"
+    URL = f"https://api.affiliateplus.xyz/api/chatbot?message={test}&botname=@Sheeba_Queenbot&ownername=@Developer_boy_sd_owner"
     try:
         r = requests.request("GET", url=URL)
     except:
@@ -332,7 +332,7 @@ async def inuka(client, message):
     # Kang with the credits bitches @InukaASiTH
     test = test.replace("sheeba", "Aco")
     test = test.replace("sheeba", "Aco")
-    URL = f"https://api.affiliateplus.xyz/api/chatbot?message={test}&botname=@AsunaRobot&ownername=@The_Ghost_Hunter"
+    URL = f"https://api.affiliateplus.xyz/api/chatbot?message={test}&botname=@Sheeba_Queenbot&ownername=@Developer_boy_sd_owner"
     try:
         r = requests.request("GET", url=URL)
     except:
@@ -357,7 +357,7 @@ async def inuka(client, message):
 
 __help__ = """
 <b> Chatbot </b>
-Asuna AI 3.0 IS THE ONLY AI SYSTEM WHICH CAN DETECT & REPLY UPTO 200 LANGUAGES
+SHEEBA AI 3.0 IS THE ONLY AI SYSTEM WHICH CAN DETECT & REPLY UPTO 200 LANGUAGES
  - /chatbot [ON/OFF]: Enables and disables AI Chat mode (EXCLUSIVE)
  - /chatbot EN : Enables English only chatbot
  
