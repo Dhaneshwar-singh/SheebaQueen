@@ -1,7 +1,7 @@
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 from telethon.tl import functions, types
 
-from SheebaQueen.event import register as Cutiepii
+from SheebaQueen.events import register as Cutiepii
 from SheebaQueen import telethn as tbot
 from SheebaQueen.pyrogramee.telethonuserbot import ubot
 
