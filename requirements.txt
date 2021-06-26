@@ -4,6 +4,9 @@ MediaInfo
 git+https://github.com/pyrogram/pyrogram
 emoji
 fontTools
+opencv-python-headless
+aiofiles
+uvloop
 lxml
 wget
 gtts
