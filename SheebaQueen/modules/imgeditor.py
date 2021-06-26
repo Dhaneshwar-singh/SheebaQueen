@@ -10,7 +10,7 @@ from pyrogram.types import (
 )
 
 # By @TroJanzHEX
-from SheebaQueen.edit_1 import (  # pylint:disable=import-error
+from SheebaQueen.utils.edit_1 import (  # pylint:disable=import-error
     black_white,
     box_blur,
     bright,
@@ -18,7 +18,7 @@ from SheebaQueen.edit_1 import (  # pylint:disable=import-error
     mix,
     normal_blur,
 )
-from SheebaQueen.edit2 import (  # pylint:disable=import-error
+from SheebaQueen.utils.edit2 import (  # pylint:disable=import-error
     cartoon,
     circle_with_bg,
     circle_without_bg,
@@ -28,13 +28,13 @@ from SheebaQueen.edit2 import (  # pylint:disable=import-error
     sepia_mode,
     sticker,
 )
-from SheebaQueen.edit3 import (  # pylint:disable=import-error
+from SheebaQueen.utils.edit3 import (  # pylint:disable=import-error
     black_border,
     blue_border,
     green_border,
     red_border,
 )
-from SheebaQueen.edit4 import (  # pylint:disable=import-error
+from SheebaQueen.utils.edit4 import (  # pylint:disable=import-error
     inverted,
     removebg_plain,
     removebg_sticker,
@@ -44,7 +44,7 @@ from SheebaQueen.edit4 import (  # pylint:disable=import-error
     rotate_270,
     round_sticker,
 )
-from SheebaQueen.edit5 import (  # pylint:disable=import-error
+from SheebaQueen.utils.edit5 import (  # pylint:disable=import-error
     normalglitch_1,
     normalglitch_2,
     normalglitch_3,
