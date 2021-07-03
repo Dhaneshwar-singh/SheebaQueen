@@ -6,14 +6,8 @@ from PIL import Image, ImageDraw, ImageFont
 import random
 import sys
 import glob
-
 ambilpoto = glob.glob("./SheebaQueen/img/*")
 d= random.choice(ambilpoto)
-
-
-
-
-
 @register(pattern="^/mlogo ?(.*)")
 async def lego(event):
  quew = event.pattern_match.group(1)
