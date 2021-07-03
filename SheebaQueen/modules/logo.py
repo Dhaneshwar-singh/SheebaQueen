@@ -8,7 +8,7 @@ import sys
 import glob
 
 ambilpoto = glob.glob("./SheebaQueen/img/*")
-    d= random.choice(ambilpoto)
+d= random.choice(ambilpoto)
 
 
 
