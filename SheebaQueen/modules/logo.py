@@ -6,8 +6,7 @@ from PIL import Image, ImageDraw, ImageFont
 import random
 import sys
 import glob
-ambilpoto = glob.glob("./SheebaQueen/img/*")
-d= random.choice(ambilpoto)
+
 @register(pattern="^/mlogo ?(.*)")
 async def lego(event):
  quew = event.pattern_match.group(1)
@@ -23,6 +22,8 @@ async def lego(event):
  await event.reply('Creating your logo...wait!')
  try:
     text = event.pattern_match.group(1)
+    ambilpoto = glob.glob("./SheebaQueen/img/*")
+    d = random.choice(ambilpoto)
     img = Image.open(d)
     draw = ImageDraw.Draw(img)
     image_widthz, image_heightz = img.size
