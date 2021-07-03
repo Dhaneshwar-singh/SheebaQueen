@@ -7,13 +7,10 @@ import random
 import sys
 import glob
 
+ambilpoto = glob.glob("./SheebaQueen/img/*")
+    d= random.choice(ambilpoto)
 
 
-Listimg = ["img2", "img1" ,"img3" ,"bg" ,"1b"]
-
-Randimg = random.choice(Listimg)
-
-d = f"./SheebaQueen/img/{Randimg}.jpg"
 
 
 
