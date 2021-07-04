@@ -102,9 +102,9 @@ async def drawText(image_path, text):
                     u_height - int((20 / 640) * i_width)),
                 text=l_text, font=m_font, fill=(255, 255, 255))
             current_h += u_height + pad
-    image_name = "pp.jpg"
+    image_name = "pp.JPEG"
     webp_file = os.path.join(image_name)
-    img.save(webp_file, "jpg")
+    img.save(webp_file, "JPEG")
     return webp_file
 
 
