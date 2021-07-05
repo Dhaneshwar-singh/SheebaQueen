@@ -6,7 +6,7 @@ from PIL import Image, ImageDraw, ImageFont
 import random
 import sys
 import glob
-
+import textwrap
 @register(pattern="^/logo ?(.*)")
 async def lego(event):
  quew = event.pattern_match.group(1)
@@ -33,6 +33,7 @@ async def lego(event):
     afont = glob.glob("./SheebaQueen/fonts/*")
     f = random.choice(afont)
     font = ImageFont.truetype(f, 95)
+    textwrap.wrap(text, width=15):
     w, h = draw.textsize(text, font=font)
     h += int(h*0.21)
     image_width, image_height = img.size
