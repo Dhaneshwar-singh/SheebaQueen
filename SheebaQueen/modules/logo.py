@@ -33,14 +33,11 @@ async def lego(event):
     afont = glob.glob("./SheebaQueen/fonts/*")
     f = random.choice(afont)
     if len(name) <= 8:
-        fnt_size = 150
-        strke = 10
+        fnt_size = 150  
     elif len(name) >= 9:
-        fnt_size = 50
-        strke = 5
+        fnt_size = 50   
     else:
-        fnt_size = 130
-        strke = 20
+        fnt_size = 130   
     font = ImageFont.truetype(f, fnt_size)
     w, h = draw.textsize(text, font=font)
     h += int(h*0.21)
