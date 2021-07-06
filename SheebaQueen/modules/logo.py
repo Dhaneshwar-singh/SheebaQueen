@@ -33,7 +33,8 @@ async def lego(event):
     afont = glob.glob("./SheebaQueen/fonts/*")
     f = random.choice(afont)
     font = ImageFont.truetype(f, 95)
-
+    while imagesize < fontSize - 20:
+        fontSize = -1
     w, h = draw.textsize(text, font=font)
     h += int(h*0.21)
     image_width, image_height = img.size
