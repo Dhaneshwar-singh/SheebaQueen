@@ -36,8 +36,8 @@ async def lego(event):
     w, h = draw.textsize(text, font=font)
     h += int(h*0.21)
     image_width, image_height = img.size
-    while img.size < fontSize - 20:
-        fontSize = -1
+    while img.size < font - 20:
+        font = -1
     draw.text(((image_widthz-w)/2, (image_heightz-h)/2), text, font=font, fill=(255, 255, 255))
     x = (image_widthz-w)/2
     y= ((image_heightz-h)/2+6)
