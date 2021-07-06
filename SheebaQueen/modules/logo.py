@@ -32,12 +32,19 @@ async def lego(event):
     shadowcolor = "blue"
     afont = glob.glob("./SheebaQueen/fonts/*")
     f = random.choice(afont)
-    font = ImageFont.truetype(f, 95)
+    if len(name) <= 8:
+        fnt_size = 150
+        strke = 10
+    elif len(name) >= 9:
+        fnt_size = 50
+        strke = 5
+    else:
+        fnt_size = 130
+        strke = 20
+    font = ImageFont.truetype(f, fnt_size)
     w, h = draw.textsize(text, font=font)
     h += int(h*0.21)
     image_width, image_height = img.size
-    while img.size < f - 20:
-        f = -1
     draw.text(((image_widthz-w)/2, (image_heightz-h)/2), text, font=font, fill=(255, 255, 255))
     x = (image_widthz-w)/2
     y= ((image_heightz-h)/2+6)
