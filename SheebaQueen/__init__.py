@@ -186,18 +186,7 @@ else:
         sw = None
         LOGGER.warning("Can't connect to SpamWatch!")
 
-dispatcher = updater.dispatcher
-mongodb = MongoClient()
-mongodb = MongoClient(MONGO_URI, MONGO_PORT)[MONGO_DB]
-motor = motor_asyncio.AsyncIOMotorClient(MONGO_URI)
-db = motor[MONGO_DB]
-db = mongodb["cutiepii"]
-engine = AIOEngine(motor, MONGO_DB)
-print("[INFO]: INITIALIZING AIOHTTP SESSION")
-aiohttpsession = ClientSession()
 
-print("[INFO]: INITIALIZING ARQ CLIENT")
-arq = ARQ(ARQ_API_URL, ARQ_API_KEY, aiohttpsession)
 
 updater = tg.Updater(TOKEN, workers=WORKERS, use_context=True)
 telethn = TelegramClient("Sheeba", API_ID, API_HASH)
