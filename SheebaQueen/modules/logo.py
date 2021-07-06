@@ -32,9 +32,9 @@ async def lego(event):
     shadowcolor = "blue"
     afont = glob.glob("./SheebaQueen/fonts/*")
     f = random.choice(afont)
-    if len(name) <= 8:
+    if len(text) <= 8:
         fnt_size = 150  
-    elif len(name) >= 9:
+    elif len(text) >= 9:
         fnt_size = 50   
     else:
         fnt_size = 130   
