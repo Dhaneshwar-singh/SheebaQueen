@@ -35,9 +35,13 @@ async def lego(event):
     if len(text) <= 8:
         fnt_size = 150  
     elif len(text) >= 9:
-        fnt_size = 50   
+        fnt_size = 50 
+    elif len(text) >= 10:
+        fnt_size = 20  
+    elif len(text) <= 7:
+        fnt_size = 190  
     else:
-        fnt_size = 130   
+        fnt_size = 95   
     font = ImageFont.truetype(f, fnt_size)
     w, h = draw.textsize(text, font=font)
     h += int(h*0.21)
