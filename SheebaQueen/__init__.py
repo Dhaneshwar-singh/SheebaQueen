@@ -4,6 +4,7 @@ import sys
 import time
 import spamwatch
 
+from aiohttp import ClientSession
 import telegram.ext as tg
 from pyrogram import Client, errors
 from telethon import TelegramClient
