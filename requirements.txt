@@ -5,6 +5,7 @@ git+https://github.com/pyrogram/pyrogram
 emoji
 fontTools
 opencv-python-headless
+python-arq
 aiofiles
 uvloop
 lxml
