@@ -189,11 +189,9 @@ else:
         LOGGER.warning("Can't connect to SpamWatch!")
 
 # Aiohttp Client
-print("[INFO]: INITIALZING AIOHTTP SESSION")
-aiohttpsession = ClientSession()
+
 # ARQ Client
-print("[INFO]: INITIALIZING ARQ CLIENT")
-arq = ARQ(ARQ_API_URL, ARQ_API_KEY, aiohttpsession)
+
 
 updater = tg.Updater(TOKEN, workers=WORKERS, use_context=True)
 telethn = TelegramClient("Sheeba", API_ID, API_HASH)
