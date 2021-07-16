@@ -1,3 +1,4 @@
+'''
 from pyrogram import filters
 
 from SheebaQueen import pbot as app
@@ -22,3 +23,4 @@ async def carbon_func(_, message):
     await app.send_document(message.chat.id, carbon)
     await m.delete()
     carbon.close()
+'''
