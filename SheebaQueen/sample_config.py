@@ -36,7 +36,8 @@ class Config(object):
     URL = None
     SPAMWATCH_API = ""  # go to support.spamwat.ch to get key
     SPAMWATCH_SUPPORT_CHAT = "@SpamWatchSupport"
-
+    ARQ_API_KEY = "SXAXAL-RRZLTN-DXQJRG-UKNLXQ-ARQ"
+    ARQ_API_URL = "https://thearq.tech"
     # OPTIONAL
     ##List of id's -  (not usernames) for users which have sudo access to the bot.
     DRAGONS = get_user_list("elevated_users.json", "sudos")
