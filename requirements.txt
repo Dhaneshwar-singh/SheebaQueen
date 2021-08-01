@@ -1,6 +1,7 @@
 future
 pySmartDL
 MediaInfo
+PyDictionary==2.0.1
 git+https://github.com/pyrogram/pyrogram
 emoji
 fontTools
