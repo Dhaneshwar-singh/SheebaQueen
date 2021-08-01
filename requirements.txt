@@ -25,7 +25,7 @@ spongemock
 zalgo-text
 geopy
 nltk
-gogoanime-api
+
 Pyrogram
 aria2p
 TgCrypto
