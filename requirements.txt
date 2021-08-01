@@ -44,7 +44,7 @@ aiohttp>=2.2.5
 Pillow>=4.2.0
 CurrencyConverter
 #googletrans
-google_trans_new
+google-trans-new==1.1.9
 jikanpy
 speedtest-cli
 coffeehouse==2.2.4
