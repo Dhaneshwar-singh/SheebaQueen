@@ -30,13 +30,11 @@ Pyrogram
 aria2p
 TgCrypto
 
-youtube_dl
+
 glitch_this
 gTTS
 
 pyaml
-
-youtube-search-python
 
 python-mpv
 psutil
@@ -63,9 +61,14 @@ ujson
 pretty_errors
 TgCrypto
 Pyrogram
-youtube-dl
-youtube_search_python
-youtube_search
+youtube-dl==2021.6.6
+youtube_search==2.1.0
+lyrics_extractor
+youtube_search_python==1.4.6
+asyncio
+
+
+
 asyncio
 dateparser==1.0.0
 pymongo==3.11.0
