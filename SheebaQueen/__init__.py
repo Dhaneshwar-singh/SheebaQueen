@@ -69,6 +69,8 @@ if ENV:
     PORT = int(os.environ.get("PORT", 5000))
     CERT_PATH = os.environ.get("CERT_PATH")
     API_ID = os.environ.get("API_ID", None)
+    ARQ_API_KEY = os.environ.get("ARQ_API_KEY", None)
+    ARQ_API_URL = "https://thearq.tech"
     API_HASH = os.environ.get("API_HASH", None)
     BOT_ID = int(os.environ.get("BOT_ID", None))
     DB_URI = os.environ.get("DATABASE_URL")
@@ -140,6 +142,8 @@ else:
     URL = Config.URL
     PORT = Config.PORT
     CERT_PATH = Config.CERT_PATH
+    ARQ_API = Config.ARQ_API_KEY
+    ARQ_API_URL = Config.ARQ_API_URL
     API_ID = Config.API_ID
     API_HASH = Config.API_HASH
 
@@ -188,15 +192,18 @@ else:
         sw = None
         LOGGER.warning("Can't connect to SpamWatch!")
 
-# Aiohttp Client
-
-# ARQ Client
 
 
 updater = tg.Updater(TOKEN, workers=WORKERS, use_context=True)
-telethn = TelegramClient("Sheeba", API_ID, API_HASH)
-pbot = Client("Sheebapbot", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
+telethn = TelegramClient("sheeba", API_ID, API_HASH)
+pbot = Client("sheebapbot", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
+print("[INFO]: INITIALIZING AIOHTTP SESSION")
+aiohttpsession = ClientSession()
+# ARQ Client
+print("[INFO]: INITIALIZING ARQ CLIENT")
+arq = ARQ(ARQ_API_URL, ARQ_API_KEY, aiohttpsession)
 dispatcher = updater.dispatcher
+
 
 DRAGONS = list(DRAGONS) + list(DEV_USERS)
 DEV_USERS = list(DEV_USERS)
