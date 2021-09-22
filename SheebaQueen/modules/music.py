@@ -1,3 +1,7 @@
+# AsunaRobot
+# Copyright@ The Ghost Hunter 
+# Special Plugin for Asuna Kanger == "Mother Fucker🙂"
+
 import asyncio
 import io
 import os
@@ -14,7 +18,7 @@ from youtubesearchpython import SearchVideos
 
 from SheebaQueen.conf import get_str_key
 from SheebaQueen.pyrogramee.pluginshelper import get_text, progress
-from SheebaQueen import pbot
+from SheebaQueen import pbot 
 
 GENIUS = get_str_key("GENIUS_API_TOKEN", None)
 
@@ -22,14 +26,12 @@ GENIUS = get_str_key("GENIUS_API_TOKEN", None)
 @pbot.on_message(filters.command(["vsong", "video"]))
 async def ytmusic(client, message: Message):
     urlissed = get_text(message)
-
     pablo = await client.send_message(
         message.chat.id, f"`Getting {urlissed} From Youtube Servers. Please Wait.`"
     )
     if not urlissed:
         await pablo.edit("Invalid Command Syntax, Please Check Help Menu To Know More!")
         return
-
     search = SearchVideos(f"{urlissed}", offset=1, mode="dict", max_results=1)
     mi = search.result()
     mio = mi["search_result"]
@@ -42,6 +44,7 @@ async def ytmusic(client, message: Message):
     url = mo
     sedlyf = wget.download(kekme)
     opts = {
+
         "format": "best",
         "addmetadata": True,
         "key": "FFmpegMetadata",
@@ -61,7 +64,7 @@ async def ytmusic(client, message: Message):
         return
     c_time = time.time()
     file_stark = f"{ytdl_data['id']}.mp4"
-    capy = f"**Video Name ➠** `{thum}` \n**Requested For :** `{urlissed}` \n**Channel :** `{thums}` \n**Link :** `{mo}`"
+    capy = f"**Video Name ➠** `{thum}` \n**Requested For :** `{urlissed}` \n**Channel :** `{thums}`\n\nBy SheebaQueen"
     await client.send_video(
         message.chat.id,
         video=open(file_stark, "rb"),
@@ -248,7 +251,7 @@ async def lyrics(client, message):
     else:
         await message.reply(
             "`Error: please use '-' as divider for <artist> and <song>`\n"
-            "eg: `.glyrics Nicki Minaj - Super Bass`"
+            "eg: `/glyrics Nicki Minaj - Super Bass`"
         )
         return
 
@@ -295,5 +298,3 @@ async def lyrics(client, message):
             f"**Search query**: \n`{artist} - {song}`\n\n```{songs.lyrics}```"
         )
     return
-
-
