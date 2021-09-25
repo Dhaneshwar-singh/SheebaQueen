@@ -300,7 +300,7 @@ async def lyrics(client, message):
     return
 
 
-@app.on_message(filters.command("saavn"))
+@pbot.on_message(filters.command("saavn"))
 async def song(client, message):
     message.chat.id
     message.from_user["id"]
