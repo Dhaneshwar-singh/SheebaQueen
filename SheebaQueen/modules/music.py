@@ -19,7 +19,7 @@ from youtubesearchpython import SearchVideos
 from SheebaQueen.conf import get_str_key
 from SheebaQueen.pyrogramee.pluginshelper import get_text, progress
 from SheebaQueen import pbot 
-from SheebaQueen.services.dark import get_arg
+from SheebaQueen.pyrogramee.dark import get_arg
 
 
 GENIUS = get_str_key("GENIUS_API_TOKEN", None)
