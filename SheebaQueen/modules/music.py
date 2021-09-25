@@ -273,58 +273,14 @@ async def song(client, message):
 
 
 
-@pbot.on_message(filters.command(["glyric", "glyrics"]))
-async def lyrics(client, message):
-
-    if r"-" in message.text:
-        pass
-    else:
-        await message.reply(
-            "`Error: please use '-' as divider for <artist> and <song>`\n"
-            "eg: `/glyrics Nicki Minaj - Super Bass`"
-        )
-        return
-
-    if GENIUS is None:
-        await message.reply(
-            "`Provide genius access token to config.py or Heroku Config first kthxbye!`"
-        )
-    else:
-        genius = lyricsgenius.Genius(GENIUS)
-        try:
-            args = message.text.split(".lyrics")[1].split("-")
-            artist = args[0].strip(" ")
-            song = args[1].strip(" ")
-        except Exception:
-            await message.reply("`Lel please provide artist and song names`")
-            return
-
-    if len(args) < 1:
-        await message.reply("`Please provide artist and song names`")
-        return
-
-    lel = await message.reply(f"`Searching lyrics for {artist} - {song}...`")
-
-    try:
-        songs = genius.search_song(song, artist)
-    except TypeError:
-        songs = None
-
-    if songs is None:
-        await lel.edit(f"Song **{artist} - {song}** not found!")
-        return
-    if len(songs.lyrics) > 4096:
-        await lel.edit("`Lyrics is too big, view the file to see it.`")
-        with open("lyrics.txt", "w+") as f:
-            f.write(f"Search query: \n{artist} - {song}\n\n{songs.lyrics}")
-        await client.send_document(
-            message.chat.id,
-            "lyrics.txt",
-            reply_to_msg_id=message.message_id,
-        )
-        os.remove("lyrics.txt")
-    else:
-        await lel.edit(
-            f"**Search query**: \n`{artist} - {song}`\n\n```{songs.lyrics}```"
-        )
-    return
+@app.on_message(filters.command(["lyric", "lyrics"]))
+async def lyrics_func(_, message):
+    if len(message.command) < 2:
+        return await message.reply_text("**Usage:**\n/lyrics [QUERY]")
+    m = await message.reply_text("**Searching**")
+    query = message.text.strip().split(None, 1)[1]
+    song = await arq.lyrics(query)
+    lyrics = song.result
+    if len(lyrics) < 4095:
+        return await m.edit(f"__{lyrics}__")
+    lyrics = await paste(lyrics)
