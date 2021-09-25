@@ -281,13 +281,13 @@ async def inuka(client, message):
         pro = translator.translate(pro, dest=lan)
         pro = pro.text
     try:
-        await asuna.send_chat_action(message.chat.id, "typing")
+        await sheeba.send_chat_action(message.chat.id, "typing")
         await message.reply_text(pro)
     except CFError:
         return
 
 
-@asuna.on_message(
+@sheeba.on_message(
     filters.regex("Sheeba|SHEEBA|sheeba|Sheeba|sheeba")
     & ~filters.bot
     & ~filters.via_bot
