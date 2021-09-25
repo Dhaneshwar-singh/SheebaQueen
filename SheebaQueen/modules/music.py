@@ -273,7 +273,7 @@ async def song(client, message):
 
 
 
-@app.on_message(filters.command(["lyric", "lyrics"]))
+@pbot.on_message(filters.command(["lyric", "lyrics"]))
 async def lyrics_func(_, message):
     if len(message.command) < 2:
         return await message.reply_text("**Usage:**\n/lyrics [QUERY]")
