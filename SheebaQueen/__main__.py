@@ -707,7 +707,7 @@ def main():
     # dispatcher.add_handler(test_handler)
     dispatcher.add_handler(start_handler)
     dispatcher.add_handler(help_handler)
-    dispatcher.add_handler(sheeba_callback_handler)
+    dispatcher.add_handler(back_callback_handler)
     dispatcher.add_handler(owner_callback_handler)
     dispatcher.add_handler(settings_handler)
     dispatcher.add_handler(help_callback_handler)
