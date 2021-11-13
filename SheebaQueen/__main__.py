@@ -84,7 +84,7 @@ buttons = [
             text="➕️ Add Sheeba The Queen To Your Group ➕️", url="t.me/Sheeba_Queenbot?startgroup=true"),
     ],
     [
-        InlineKeyboardButton(text="About", callback_data="sheeba_"),
+        InlineKeyboardButton(text="Whisper-Message",switch_inline_query_current_chat=""),
         InlineKeyboardButton(
             text="Support", url=f"https://t.me/{SUPPORT_CHAT}"
         ),
