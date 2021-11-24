@@ -1,46 +1,28 @@
-# Copyright (C) 2021 AsunaRobot
-# made by @The_Ghost_Hunter on Telegram. 
-# github account : https://github.com/HuntingBots/
-# This file is part of AsunaRobot (Telegram Bot)
-
 import asyncio
+
 from telethon import events
 from telethon.tl.types import ChannelParticipantsAdmins
-from SheebaQueen import telethn 
-from SheebaQueen.events import register as Sheeba 
+
+from SheebaQueen import telethn, BOT_NAME
+from SheebaQueen.events import register as SheebaQueen
 
 
 
-@Sheeba(pattern="^/tagall ?(.*)")
+@SheebaQueen(pattern="^/tagall ?(.*)")
 async def _(event):
     if event.fwd_from:
         return
-    mentions = "Hi Friends I'm SheebaQueen, How Are you doing"
+    mentions = f"Hi Friends I'm {BOT_NAME} I Call To All Of You"
     chat = await event.get_input_chat()
     async for x in telethn.iter_participants(chat, 100):
         mentions += f" \n [{x.first_name}](tg://user?id={x.id})"
     await event.reply(mentions)
     await event.delete()
 
-
-@Sheeba(pattern="^/users ?(.*)")
-async def _(event):
-    if event.fwd_from:
-        return
-    mentions = "Users : "
-    chat = await event.get_input_chat()
-    async for x in telethn.iter_participants(chat, filter=ChannelParticipantsAdmins):
-        mentions += f" \n [{x.first_name}](tg://user?id={x.id})"
-    reply_message = None
-    if event.reply_to_msg_id:
-        reply_message = await event.get_reply_message()
-        await reply_message.reply(mentions)
-    else:
-        await event.reply(mentions)
-    await event.delete()
-
-
-__mod_name__ = "Tagger"
+__mod_name__ = "Tag All"
 __help__ = """
-- /tagall : Tag everyone in a chat
+  ➢ `/tagall` : Tag everyone in a chat.
+  ➢ `/tagall` : Mention All Members
+Exp:- /all <Text> or <reply>
+Note:- This `/tagall` Command can mention members upto 10,000 in groups and can mention members upto 200 in channels !
 """
