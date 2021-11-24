@@ -3,16 +3,16 @@ import asyncio
 from telethon import events
 from telethon.tl.types import ChannelParticipantsAdmins
 
-from SheebaQueen import telethn, BOT_NAME
-from SheebaQueen.events import register as SheebaQueen
+from SheebaQueen import telethn
+from SheebaQueen.events import register as Sheeba
 
 
 
-@SheebaQueen(pattern="^/tagall ?(.*)")
+@Sheeba(pattern="^/tagall ?(.*)")
 async def _(event):
     if event.fwd_from:
         return
-    mentions = f"Hi Friends I'm {BOT_NAME} I Call To All Of You"
+    mentions = f"Hi Friends I'm Sheeba_Queen I Call To All Of You"
     chat = await event.get_input_chat()
     async for x in telethn.iter_participants(chat, 100):
         mentions += f" \n [{x.first_name}](tg://user?id={x.id})"
