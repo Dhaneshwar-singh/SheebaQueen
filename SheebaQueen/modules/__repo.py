@@ -9,6 +9,4 @@ async def repo(event):
       ------------------------------------------------------                  
  👉  [noob-kittu](https://github.com/noob-kittu)
       ------------------------------------------------------                  
- 👉[Ghost-Hunter](https://github.com/HuntingBots)
-      ------------------------------------------------------              
  🌝@Sheeba_Queenbot [GitHub-repository](https://github.com/developer-boy-sdowner/Sheebarobot)""")
