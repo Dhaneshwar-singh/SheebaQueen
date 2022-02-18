@@ -96,7 +96,7 @@ buttons = [
 
 
 HELP_STRINGS = """
-`Hi.. I'm` [Sheeba Queen 🙋‍♀️](https://telegra.ph/file/b222e851d7c395223e37d.jpg)
+`Hi.. I'm` [Sheeba Queen](https://telegra.ph/file/b222e851d7c395223e37d.jpg)
 `Click on the buttons below to get documentation about specific modules..`"""
 
 
@@ -386,7 +386,7 @@ def owner_about_callback(update, context):
     if query.data == "owner_":
         query.message.edit_text(
             text=""" Hi..🤗 I'm *Sheeba*
-                 \nHere is the [owner](https://t.me/Developer_boy_sd_owner) .""",
+                 \nHere is the [owner](https://t.me/Developer_boy_d) .""",
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
