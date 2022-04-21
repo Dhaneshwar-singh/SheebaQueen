@@ -1,6 +1,6 @@
 import pymongo
 
-from SheebaQueen.config import get_str_key
+from SheebaQueen.conf import get_str_key
 
 MONGO2 = get_str_key("FILTERS_MONGO", None)
 MONGO = get_str_key("MONGO_URI", required=True)
