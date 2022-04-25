@@ -8,15 +8,11 @@
          "manager",
          ""
       ],   
-   "repository": "https://github.com/developer-boy-sdowner/SheebaQueen/",
-   "addons": [
-      {
-         "options": {
-            "version": "12"
-         },
-         "plan": "heroku-postgresql"
-      }
-   ],
+   "repository": "https://github.com/Dhaneshwar-Singh/SheebaQueen/",
+   "buildpacks": [
+   {
+     "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest"
+   }   
    "env": {
       "TOKEN": {
          "description": "Your bot token. Get one from @BotFather duh",
