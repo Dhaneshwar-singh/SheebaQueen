@@ -1,170 +1,95 @@
-import json
-import re
-import os
-import html
-import requests
-import SheebaQueen.modules.sql.chatbot_sql as sql
+from asyncio import gather, sleep
 
-from time import sleep
-from telegram import ParseMode
-from telegram import (CallbackQuery, Chat, MessageEntity, InlineKeyboardButton,
-                      InlineKeyboardMarkup, Message, Update, Bot, User)
-from telegram.ext import (CallbackContext, CallbackQueryHandler, CommandHandler,
-                          DispatcherHandlerStop, Filters, MessageHandler,
-                          run_async)
-from telegram.error import BadRequest, RetryAfter, Unauthorized
-from telegram.utils.helpers import mention_html, mention_markdown, escape_markdown
+from pyrogram import filters
+from pyrogram.types import Message
 
-from SheebaQueen.modules.helper_funcs.filters import CustomFilters
-from SheebaQueen.modules.helper_funcs.chat_status import user_admin, user_admin_no_reply
-from SheebaQueen import dispatcher, updater, SUPPORT_CHAT
-from SheebaQueen.modules.log_channel import gloggable
+from SheebaQueen import (
+    BOT_ID,
+    pbot,
+    arq,
+    eor,
+)
+from SheebaQueen.utils.errors import capture_err
+from SheebaQueen.utils.filter_groups import chatbot_group
+from SheebaQueen.utils.dbfunctions import check_chatbot, add_chatbot, rm_chatbot
 
- 
-@user_admin_no_reply
-@gloggable
-def kukirm(update: Update, context: CallbackContext) -> str:
-    query: Optional[CallbackQuery] = update.callback_query
-    user: Optional[User] = update.effective_user
-    match = re.match(r"rm_chat\((.+?)\)", query.data)
-    if match:
-        user_id = match.group(1)
-        chat: Optional[Chat] = update.effective_chat
-        is_kuki = sql.rem_chat(chat.id)
-        if is_kuki:
-            is_kuki = sql.rem_chat(user_id)
-            return (
-                f"<b>{html.escape(chat.title)}:</b>\n"
-                f"AI_DISABLED\n"
-                f"<b>Admin:</b> {mention_html(user.id, html.escape(user.first_name))}\n"
-            )
-        else:
-            update.effective_message.edit_text(
-                "Sheeba Chatbot disable by {}.".format(mention_html(user.id, user.first_name)),
-                parse_mode=ParseMode.HTML,
-            )
+__MODULE__ = "ChatBot"
+__HELP__ = """
+/chatbot [ENABLE|DISABLE] To Enable Or Disable ChatBot In Your Chat.
 
-    return ""
+There's one module of this available for userbot also
+check userbot module help."""
 
-@user_admin_no_reply
-@gloggable
-def kukiadd(update: Update, context: CallbackContext) -> str:
-    query: Optional[CallbackQuery] = update.callback_query
-    user: Optional[User] = update.effective_user
-    match = re.match(r"add_chat\((.+?)\)", query.data)
-    if match:
-        user_id = match.group(1)
-        chat: Optional[Chat] = update.effective_chat
-        is_kuki = sql.get_ses(chat.id)
-        if is_kuki:
-            is_kuki = sql.get_ses(user_id)
-            return (
-                f"<b>{html.escape(chat.title)}:</b>\n"
-                f"AI_ENABLE\n"
-                f"<b>Admin:</b> {mention_html(user.id, html.escape(user.first_name))}\n"
-            )
-        else:
-            update.effective_message.edit_text(
-                "sheeba Chatbot enable by {}.".format(mention_html(user.id, user.first_name)),
-                parse_mode=ParseMode.HTML,
-            )
-
-    return ""
-
-@user_admin
-@gloggable
-def kuki(update: Update, context: CallbackContext):
-    user = update.effective_user
-    message = update.effective_message
-    msg = "Choose an option"
-    keyboard = InlineKeyboardMarkup([[
-        InlineKeyboardButton(
-            text="Enable",
-            callback_data="add_chat({})")],
-       [
-        InlineKeyboardButton(
-            text="Disable",
-            callback_data="rm_chat({})")]])
-    message.reply_text(
-        msg,
-        reply_markup=keyboard,
-        parse_mode=ParseMode.HTML,
-    )
-
-def kuki_message(context: CallbackContext, message):
-    reply_message = message.reply_to_message
-    if message.text.lower() == "sheeba":
-        return True
-    if reply_message:
-        if reply_message.from_user.id == context.bot.get_me().id:
-            return True
+async def chat_bot_toggle(message: Message, is_userbot: bool):
+    status = message.text.split(None, 1)[1].lower()
+    chat_id = message.chat.id
+    db = await check_chatbot()
+    db = db["userbot"] if is_userbot else db["bot"]
+    if status == "enable":
+        if chat_id not in db:
+            await add_chatbot(chat_id, is_userbot=is_userbot)
+            text = "Chatbot Enabled!"
+            return await eor(message, text=text)
+        await eor(message, text="ChatBot Is Already Enabled.")
+    elif status == "disable":
+        if chat_id in db:
+            await rm_chatbot(chat_id, is_userbot=is_userbot)
+            return await eor(message, text="Chatbot Disabled!")
+        await eor(message, text="ChatBot Is Already Disabled.")
     else:
-        return False
-        
+        await eor(message, text="**Usage:**\n/chatbot [ENABLE|DISABLE]")
 
-def chatbot(update: Update, context: CallbackContext):
-    message = update.effective_message
-    chat_id = update.effective_chat.id
-    bot = context.bot
-    is_kuki = sql.is_chat(chat_id)
-    if not is_kuki:
+
+# Enabled | Disable Chatbot
+
+
+@app.on_message(filters.command("chatbot") & ~filters.edited)
+@capture_err
+async def chatbot_status(_, message: Message):
+    if len(message.command) != 2:
+        return await eor(message, text="**Usage:**\n/chatbot [ENABLE|DISABLE]")
+    await chat_bot_toggle(message, is_userbot=False)
+
+
+async def lunaQuery(query: str, user_id: int):
+    luna = await arq.luna(query, user_id)
+    return luna.result
+
+
+async def type_and_send(message: Message):
+    chat_id = message.chat.id
+    user_id = message.from_user.id if message.from_user else 0
+    query = message.text.strip()
+    await message._client.send_chat_action(chat_id, "typing")
+    response, _ = await gather(lunaQuery(query, user_id), sleep(3))
+    await message.reply_text(response)
+    await message._client.send_chat_action(chat_id, "cancel")
+
+
+@app.on_message(
+    filters.text
+    & filters.reply
+    & ~filters.bot
+    & ~filters.via_bot
+    & ~filters.forwarded
+    & ~filters.edited,
+    group=chatbot_group,
+)
+@capture_err
+async def chatbot_talk(_, message: Message):
+    db = await check_chatbot()
+    if message.chat.id not in db["bot"]:
         return
-	
-    if message.text and not message.document:
-        if not kuki_message(context, message):
-            return
-        Message = message.text
-        bot.send_chat_action(chat_id, action="typing")
-        kukiurl = requests.get('https://www.kukiapi.xyz/api/apikey=KUKIg76Fg4EIo/Cutiepii/@Awesome_RJ/message='+Message)
-        Kuki = json.loads(kukiurl.text)
-        kuki = Kuki['reply']
-        sleep(0.3)
-        message.reply_text(kuki, timeout=60)
-
-def list_all_chats(update: Update, context: CallbackContext):
-    chats = sql.get_all_chats()
-    text = "<b>sheeba Enabled Chats</b>\n"
-    for chat in chats:
-        try:
-            x = context.bot.get_chat(int(*chat))
-            name = x.title or x.first_name
-            text += f"• <code>{name}</code>\n"
-        except (BadRequest, Unauthorized):
-            sql.rem_chat(*chat)
-        except RetryAfter as e:
-            sleep(e.retry_after)
-    update.effective_message.reply_text(text, parse_mode="HTML")
-
-__help__ = """
-
-*Admins only Commands*:
-  ➢ `/Chatbot`*:* Shows chatbot control panel
-  
-*Powered by ItelAi*
-"""
-
-__mod_name__ = "ChatBot"
+    if not message.reply_to_message:
+        return
+    if not message.reply_to_message.from_user:
+        return
+    if message.reply_to_message.from_user.id != BOT_ID:
+        return
+    await type_and_send(message)
 
 
-CHATBOTK_HANDLER = CommandHandler("chatbot", kuki,)
-ADD_CHAT_HANDLER = CallbackQueryHandler(kukiadd, pattern=r"add_chat", )
-RM_CHAT_HANDLER = CallbackQueryHandler(kukirm, pattern=r"rm_chat", )
-CHATBOT_HANDLER = MessageHandler(
-    Filters.text & (~Filters.regex(r"^#[^\s]+") & ~Filters.regex(r"^!")
-                    & ~Filters.regex(r"^\/")), chatbot, )
-LIST_ALL_CHATS_HANDLER = CommandHandler(
-    "allchats", list_all_chats, filters=CustomFilters.dev_filter, )
+# FOR USERBOT
 
-dispatcher.add_handler(ADD_CHAT_HANDLER)
-dispatcher.add_handler(CHATBOTK_HANDLER)
-dispatcher.add_handler(RM_CHAT_HANDLER)
-dispatcher.add_handler(LIST_ALL_CHATS_HANDLER)
-dispatcher.add_handler(CHATBOT_HANDLER)
 
-__handlers__ = [
-    ADD_CHAT_HANDLER,
-    CHATBOTK_HANDLER,
-    RM_CHAT_HANDLER,
-    LIST_ALL_CHATS_HANDLER,
-    CHATBOT_HANDLER,
-]
+
