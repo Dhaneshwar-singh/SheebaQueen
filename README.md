@@ -15,7 +15,7 @@
 </p>
 
 # SheebaQueen
-Me On Telegram [✨SheebaQueen✨](https://t.me/Sheeba_Queenbot)
+Me On Telegram [✨✨SheebaQueen✨✨](https://t.me/Sheeba_Queenbot)
 
 # Please Give Credit and Fork This Repo Don't Clone
 # FEEL FREE To Contribute And Make This Bot More Fantastic.
