@@ -83,3 +83,6 @@ def play(client: Client, message: Message):
         on_error=func(m.edit, "{}: {}"),
 
     )
+
+
+# ✨
