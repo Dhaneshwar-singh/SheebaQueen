@@ -14,7 +14,7 @@
   <img src="https://telegra.ph/file/b222e851d7c395223e37d.jpg">
 </p>
 
-# SheebaQueen
+# Sheeba Queen
 Me On Telegram [✨SheebaQueen✨](https://t.me/Sheeba_Queenbot)
 
 # Please Give Credit and Fork This Repo Don't Clone
